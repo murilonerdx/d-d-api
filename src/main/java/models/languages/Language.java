@@ -1,17 +1,14 @@
 package models.languages;
 
-import models.utility.APIResource;
-import models.utility.CharacterDataType;
-import models.utility.RequestAPI;
+import models.utility.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.List;
 
 import static utils.APIProperties.getServer;
 
-public class Language extends APIResource {
+public class Language extends DefaultDataAPI {
     private String desc;
     private String type;
     private String script;
@@ -50,21 +47,28 @@ public class Language extends APIResource {
     }
 
     public static Language get(String url){
-        Language obj = new  com.google.gson.Gson().fromJson(new RestTemplate().getForEntity(url +"/api/ability-scores/", String.class).getBody(), Language.class);
-        obj.setIsFetched(true);
-        return obj;
+        return new  com.google.gson.Gson().fromJson(new RestTemplate().getForEntity(url + CharacterDataType.LANGUAGES.getEndpoint(), String.class).getBody(), Language.class);
     }
 
-    public static List<Object> get() throws IOException {
+    public static RequestDefaultResource get() throws IOException {
         String path = getServer() + CharacterDataType.LANGUAGES.getEndpoint();
-        return List.of(RequestAPI.GETs(path, Language[].class));
+        return RequestAPI.GETs(path, RequestDefaultResource[].class);
     }
 
     public static Language getIndex(LanguageType index) throws IOException {
         String path = getServer() + CharacterDataType.LANGUAGES.getEndpoint() + index.getDescription();
-        Language obj = (Language) RequestAPI.GET(path, Language.class);
-
-        obj.setIsFetched(true);
-        return obj;
+        return (Language) RequestAPI.GET(path, Language.class);
     }
+
+    @Override
+    public String toString() {
+        return "Language{" +
+                "desc='" + desc + '\'' +
+                ", type='" + type + '\'' +
+                ", script='" + script + '\'' +
+                ", typical_speakers=" + Arrays.toString(typical_speakers) +
+                '}';
+    }
+
+
 }

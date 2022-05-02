@@ -1,24 +1,20 @@
 package models.ability;
 
-import models.languages.Language;
-import models.skill.Skill;
-import models.utility.APIResource;
-import models.utility.CharacterDataType;
-import models.utility.RequestAPI;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import models.utility.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
 
 import static utils.APIProperties.getServer;
 
-public class AbilityScore extends APIResource{
+public class AbilityScore extends DefaultDataAPI {
     private String full_name;
     private String[] desc;
-    private ArrayList<Skill> skills;
+
+    private ArrayList<DefaultDataAPI> skills;
 
     public AbilityScore() {
     }
@@ -39,31 +35,34 @@ public class AbilityScore extends APIResource{
         this.full_name = full_name;
     }
 
-    public ArrayList<Skill> getSkills() {
+    public ArrayList<DefaultDataAPI> getSkills() {
         return skills;
     }
 
-    public void setSkills(ArrayList<Skill> skill) {
+    public void setSkills(ArrayList<DefaultDataAPI> skill) {
         this.skills = skill;
     }
 
     public static AbilityScore get(String url){
-        AbilityScore obj = new  com.google.gson.Gson().fromJson(new RestTemplate().getForEntity(url +"/api/ability-scores/", String.class).getBody(), AbilityScore.class);
-        obj.setIsFetched(true);
-        return obj;
+        return new  com.google.gson.Gson().fromJson(new RestTemplate().getForEntity(url + CharacterDataType.ABILITYSCORE.getEndpoint(), String.class).getBody(), AbilityScore.class);
+    }
+
+    public static RequestDefaultResource get() throws IOException {
+        String path = getServer() + CharacterDataType.ABILITYSCORE.getEndpoint();
+        return RequestAPI.GETs(path, RequestDefaultResource[].class);
     }
 
     public static AbilityScore getIndex(AbilityScoreType index) throws IOException {
         String path = getServer() + CharacterDataType.ABILITYSCORE.getEndpoint() + index.getDescription();
-        AbilityScore obj = (AbilityScore) RequestAPI.GET(path, AbilityScore.class);
-
-        obj.setIsFetched(true);
-        return obj;
+        return (AbilityScore) RequestAPI.GET(path, AbilityScore.class);
     }
 
-    public static List<Object> get() throws IOException {
-        String path = getServer() + CharacterDataType.ABILITYSCORE.getEndpoint();
-        return List.of(RequestAPI.GETs(path, AbilityScore[].class));
+    @Override
+    public String toString() {
+        return "AbilityScore{" +
+                "full_name='" + full_name + '\'' +
+                ", desc=" + Arrays.toString(desc) +
+                ", skills=" + skills +
+                '}';
     }
-
 }

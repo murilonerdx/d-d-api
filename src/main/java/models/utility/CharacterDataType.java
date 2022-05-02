@@ -3,7 +3,8 @@ package models.utility;
 public enum CharacterDataType {
     ABILITYSCORE("/api/ability-scores/"),
     ALIGNMENT("/api/alignments/"),
-    LANGUAGES("/api/languages/");
+    LANGUAGES("/api/languages/"),
+    PROFICIENCY("/api/proficiencies/");
 
     private String endpoint;
     CharacterDataType(String endpoint) {

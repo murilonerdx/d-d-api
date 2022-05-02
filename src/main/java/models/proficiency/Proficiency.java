@@ -1,13 +1,14 @@
 package models.proficiency;
 
-import models.languages.LanguageType;
+import com.google.gson.Gson;
 import models.utility.*;
+import models.utility.path.CharacterDataType;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Optional;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -52,7 +53,7 @@ public class Proficiency extends DefaultDataAPI {
     }
 
     public static Proficiency get(String url){
-        return new  com.google.gson.Gson().fromJson(new RestTemplate().getForEntity(url + CharacterDataType.PROFICIENCY.getEndpoint(), String.class).getBody(), Proficiency.class);
+        return new Gson().fromJson(new RestTemplate().getForEntity(url + CharacterDataType.PROFICIENCY.getEndpoint(), String.class).getBody(), Proficiency.class);
     }
 
     public static RequestDefaultResource get() throws IOException {
@@ -60,13 +61,22 @@ public class Proficiency extends DefaultDataAPI {
         return RequestAPI.GETs(path, RequestDefaultResource[].class);
     }
 
-    public static Proficiency getIndex(String index) throws IOException {
-        String path = getServer() + CharacterDataType.PROFICIENCY.getEndpoint() + index;
+    public static Proficiency getIndex(String name) throws IOException {
+        String path = getServer() + CharacterDataType.PROFICIENCY.getEndpoint() + name;
         return (Proficiency) RequestAPI.GET(path, Proficiency.class);
     }
 
-    public static DefaultDataAPI searchProficiency(String name) throws Exception {
-        return get().getResults().stream().filter(x -> Pattern.compile(name).matcher(x.getName()).find()).findFirst().get();
+    public static List<DefaultDataAPI> searchProficiency(String name) throws Exception {
+        List<DefaultDataAPI> dda = new ArrayList<>();
+        Pattern pattern = Pattern.compile(name.toLowerCase());
+
+        for (DefaultDataAPI result : get().getResults()) {
+            Matcher match = pattern.matcher(result.getName().toLowerCase());
+            while(match.find()){
+                dda.add(result);
+            }
+        }
+        return dda;
     }
 
     @Override

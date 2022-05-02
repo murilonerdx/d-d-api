@@ -1,6 +1,8 @@
 package models.languages;
 
+import com.google.gson.Gson;
 import models.utility.*;
+import models.utility.path.CharacterDataType;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
@@ -47,7 +49,7 @@ public class Language extends DefaultDataAPI {
     }
 
     public static Language get(String url){
-        return new  com.google.gson.Gson().fromJson(new RestTemplate().getForEntity(url + CharacterDataType.LANGUAGES.getEndpoint(), String.class).getBody(), Language.class);
+        return new Gson().fromJson(new RestTemplate().getForEntity(url + CharacterDataType.LANGUAGES.getEndpoint(), String.class).getBody(), Language.class);
     }
 
     public static RequestDefaultResource get() throws IOException {

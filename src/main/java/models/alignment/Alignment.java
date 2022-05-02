@@ -1,6 +1,8 @@
 package models.alignment;
 
+import com.google.gson.Gson;
 import models.utility.*;
+import models.utility.path.CharacterDataType;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
@@ -31,7 +33,7 @@ public class Alignment extends DefaultDataAPI {
     }
 
     public static Alignment get(String url){
-        return new  com.google.gson.Gson().fromJson(new RestTemplate().getForEntity(url + CharacterDataType.ALIGNMENT.getEndpoint(), String.class).getBody(), Alignment.class);
+        return new Gson().fromJson(new RestTemplate().getForEntity(url + CharacterDataType.ALIGNMENT.getEndpoint(), String.class).getBody(), Alignment.class);
     }
 
     public static RequestDefaultResource get() throws IOException {

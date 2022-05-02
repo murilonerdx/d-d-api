@@ -1,7 +1,8 @@
 package models.ability;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.Gson;
 import models.utility.*;
+import models.utility.path.CharacterDataType;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
@@ -13,7 +14,6 @@ import static utils.APIProperties.getServer;
 public class AbilityScore extends DefaultDataAPI {
     private String full_name;
     private String[] desc;
-
     private ArrayList<DefaultDataAPI> skills;
 
     public AbilityScore() {
@@ -44,7 +44,7 @@ public class AbilityScore extends DefaultDataAPI {
     }
 
     public static AbilityScore get(String url){
-        return new  com.google.gson.Gson().fromJson(new RestTemplate().getForEntity(url + CharacterDataType.ABILITYSCORE.getEndpoint(), String.class).getBody(), AbilityScore.class);
+        return new Gson().fromJson(new RestTemplate().getForEntity(url + CharacterDataType.ABILITYSCORE.getEndpoint(), String.class).getBody(), AbilityScore.class);
     }
 
     public static RequestDefaultResource get() throws IOException {

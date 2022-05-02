@@ -30,7 +30,7 @@ class Prerequisite {
 
     @Override
     public String toString() {
-        return "Prerequisite{" +
+        return "{" +
                 "ability_score=" + ability_score +
                 ", minimum_score=" + minimum_score +
                 '}';

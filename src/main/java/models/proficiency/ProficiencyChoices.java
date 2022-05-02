@@ -36,7 +36,7 @@ public class ProficiencyChoices {
 
     @Override
     public String toString() {
-        return "ProficiencyChoices{" +
+        return "{" +
                 "choose=" + choose +
                 ", type='" + type + '\'' +
                 ", from=" + Arrays.toString(from) +

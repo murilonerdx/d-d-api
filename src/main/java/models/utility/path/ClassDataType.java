@@ -1,7 +1,10 @@
 package models.utility.path;
 
 public enum ClassDataType {
-    CLASSES("/api/classes/");
+    CLASSES("api/classes/"),
+    SPELLCASTING("api/classes/{index}/spellcasting"),
+    SUBCLASS("api/classes/{index}/subclasses"),
+    SPELL("api/classes/{index}/spells");
 
     private String endpoint;
     ClassDataType(String endpoint) {
@@ -14,5 +17,9 @@ public enum ClassDataType {
 
     public void setEndpoint(String endpoint) {
         this.endpoint = endpoint;
+    }
+
+    public String endpointReplace(String index){
+        return getEndpoint().replace("{index}", index);
     }
 }

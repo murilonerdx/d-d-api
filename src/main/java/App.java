@@ -7,6 +7,10 @@ import models.languages.LanguageType;
 import models.proficiency.Proficiency;
 import models.skill.Skill;
 import models.skill.SkillType;
+import models.spell.Spell;
+import models.spellcasting.SpellCasting;
+import models.spellcasting.SpellCastingType;
+import models.subclasse.SubClass;
 import models.utility.DefaultDataAPI;
 import models.utility.RequestDefaultResource;
 import models.ability.AbilityScore;
@@ -23,14 +27,24 @@ public class App {
         RequestDefaultResource requestDefaultResource5 = Skill.get();
         RequestDefaultResource requestDefaultResource6 = Classe.get();
 
+        List<SpellCasting> requestDefaultResource7 = SpellCasting.get();
+        List<SubClass> requestDefaultResource8 = SubClass.get();
+        List<Spell> requestDefaultResource9 = Spell.get();
+
 
         AbilityScore ability_score = AbilityScore.getIndex(AbilityScoreType.charisma);
         Alignment alignment = Alignment.getIndex(AlignmentType.CE);
         Language language = Language.getIndex(LanguageType.draconic);
         Proficiency proficiency = Proficiency.getIndex("medium-armor");
         Skill skill = Skill.getIndex(SkillType.history);
-        List<DefaultDataAPI> list_proficincy = Proficiency.searchProficiency("ate");
         Classe classe = Classe.getIndex(ClasseType.bard);
+
+        SpellCasting spell_casting = SpellCasting.getIndex(SpellCastingType.druid);
+        SubClass sub_class = SubClass.getIndex(SpellCastingType.druid);
+        Spell spell = Spell.getIndex(SpellCastingType.ranger);
+
+        List<DefaultDataAPI> list_proficincy = Proficiency.searchProficiency("ate");
+        List<Classe> list_classe = Classe.searchClasse(ClasseType.wizard);
 
         System.out.println(requestDefaultResource1);
         System.out.println(requestDefaultResource2);
@@ -38,14 +52,26 @@ public class App {
         System.out.println(requestDefaultResource4);
         System.out.println(requestDefaultResource5);
         System.out.println(requestDefaultResource6);
-        System.out.println("#######");
+        System.out.println(requestDefaultResource7);
+        System.out.println(requestDefaultResource8);
+        System.out.println(requestDefaultResource9);
+
+        System.out.println("\n\n#######");
+
         System.out.println(ability_score);
         System.out.println(alignment);
         System.out.println(language);
         System.out.println(proficiency);
         System.out.println(skill);
-        System.out.println(list_proficincy);
         System.out.println(classe);
+        System.out.println(spell_casting);
+        System.out.println(sub_class);
+        System.out.println(spell);
+
+        System.out.println("\n\n#######");
+
+        System.out.println(list_proficincy);
+        System.out.println(list_classe);
 
 
     }

@@ -1,11 +1,11 @@
 package models.utility.path;
 
 public enum CharacterDataType {
-    ABILITYSCORE("/api/ability-scores/"),
-    ALIGNMENT("/api/alignments/"),
-    LANGUAGES("/api/languages/"),
-    PROFICIENCY("/api/proficiencies/"),
-    SKILL("/api/skills/");
+    ABILITYSCORE("api/ability-scores/"),
+    ALIGNMENT("api/alignments/"),
+    LANGUAGES("api/languages/"),
+    PROFICIENCY("api/proficiencies/"),
+    SKILL("api/skills/");
 
 
     private String endpoint;

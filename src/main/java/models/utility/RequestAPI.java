@@ -7,6 +7,8 @@ import org.springframework.http.HttpMethod;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.util.logging.Logger;
+
 public class RequestAPI extends Header{
 
     public static Object GET(String url, Class<?> object){

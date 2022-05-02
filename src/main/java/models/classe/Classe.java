@@ -13,7 +13,11 @@ import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static utils.APIProperties.getServer;
 
@@ -126,6 +130,20 @@ public class Classe extends DefaultDataAPI {
     public static Classe getIndex(ClasseType type) throws IOException {
         String path = getServer() + ClassDataType.CLASSES.getEndpoint() + type.name();
         return (Classe) RequestAPI.GET(path, Classe.class);
+    }
+
+    public static List<Classe> searchClasse(ClasseType type) throws Exception {
+        List<Classe> dda = new ArrayList<>();
+        Pattern pattern = Pattern.compile(type.name().toLowerCase());
+
+        for (DefaultDataAPI result : get().getResults()) {
+            Matcher match = pattern.matcher(result.getName().toLowerCase());
+            while(match.find()){
+                Classe index = getIndex(type);
+                dda.add(index);
+            }
+        }
+        return dda;
     }
 
     @Override

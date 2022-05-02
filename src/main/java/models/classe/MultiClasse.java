@@ -7,16 +7,16 @@ import java.util.Arrays;
 
 class MultiClasse {
     private Prerequisite[] prerequisites;
-    private Prerequisite.PrerequisiteOptions[] prerequisites_options;
+    private Prerequisite.PrerequisiteOptions[] prerequisite_options;
     private DefaultDataAPI[] proficiencies;
-    private ProficiencyChoices[] proficiency_choises;
+    private ProficiencyChoices[] proficiency_choices;
 
     public Prerequisite[] getPrerequisites() {
         return prerequisites;
     }
 
-    public Prerequisite.PrerequisiteOptions[] getPrerequisites_options() {
-        return prerequisites_options;
+    public Prerequisite.PrerequisiteOptions[] getPrerequisite_options() {
+        return prerequisite_options;
     }
 
     public DefaultDataAPI[] getProficiencies() {
@@ -28,28 +28,28 @@ class MultiClasse {
     }
 
     public ProficiencyChoices[] getProficiency_choises() {
-        return proficiency_choises;
+        return proficiency_choices;
     }
 
-    public void setProficiency_choises(ProficiencyChoices[] proficiency_choises) {
-        this.proficiency_choises = proficiency_choises;
+    public void setProficiency_choises(ProficiencyChoices[] proficiency_choices) {
+        this.proficiency_choices = proficiency_choices;
     }
 
     public void setPrerequisites(Prerequisite[] prerequisites) {
         this.prerequisites = prerequisites;
     }
 
-    public void setPrerequisites_options(Prerequisite.PrerequisiteOptions[] prerequisites_options) {
-        this.prerequisites_options = prerequisites_options;
+    public void setPrerequisite_options(Prerequisite.PrerequisiteOptions[] prerequisite_options) {
+        this.prerequisite_options = prerequisite_options;
     }
 
     @Override
     public String toString() {
-        return "MultiClasse{" +
+        return "{" +
                 "prerequisites=" + Arrays.toString(prerequisites) +
-                ", prerequisites_options=" + Arrays.toString(prerequisites_options) +
+                ", prerequisite_options=" + Arrays.toString(prerequisite_options) +
                 ", proficiencies=" + Arrays.toString(proficiencies) +
-                ", proficiency_choises=" + Arrays.toString(proficiency_choises) +
+                ", proficiency_choises=" + Arrays.toString(proficiency_choices) +
                 '}';
     }
 }

@@ -23,9 +23,4 @@ public class NamedAPIResource extends APIResource {
         this.index = index;
     }
 
-    @Override
-    public String getUrl() {
-        return url;
-    }
-
 }

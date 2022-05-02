@@ -13,11 +13,13 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
 
 import static utils.APIProperties.getProp;
 import static utils.APIProperties.getServer;
 
-public class AbilityScore extends APIResource {
+public class AbilityScore extends APIResource{
     private String index;
     private String name;
     private String full_name;
@@ -73,16 +75,37 @@ public class AbilityScore extends APIResource {
         return obj;
     }
 
-    public AbilityScore get() {
-        return AbilityScore.get(this.getUrl());
-    }
-
-    public static AbilityScore getIndex(String name) throws IOException {
-        String path = getServer() + CharacterData.ABILITYSCORE.getEndpoint() + name;
+    public static AbilityScore getIndex(AbilityScoreIndex index) throws IOException {
+        String path = getServer() + CharacterData.ABILITYSCORE.getEndpoint() + index.getDescription();
         AbilityScore obj = (AbilityScore) RequestAPI.GET(path, AbilityScore.class);
 
         obj.setIsFetched(true);
         return obj;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AbilityScore that = (AbilityScore) o;
+        return Objects.equals(index, that.index) && Objects.equals(name, that.name) && Objects.equals(full_name, that.full_name) && Arrays.equals(desc, that.desc) && Objects.equals(skills, that.skills);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(index, name, full_name, skills);
+        result = 31 * result + Arrays.hashCode(desc);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "AbilityScore{" +
+                "index='" + index + '\'' +
+                ", name='" + name + '\'' +
+                ", full_name='" + full_name + '\'' +
+                ", desc=" + Arrays.toString(desc) +
+                ", skills=" + skills +
+                '}';
+    }
 }

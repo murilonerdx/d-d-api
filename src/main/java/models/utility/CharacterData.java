@@ -1,7 +1,8 @@
 package models.utility;
 
 public enum CharacterData {
-    ABILITYSCORE("/api/ability-scores/");
+    ABILITYSCORE("/api/ability-scores/"),
+    ALIGNMENT("/api/alignments/");
 
     private String endpoint;
     CharacterData(String endpoint) {

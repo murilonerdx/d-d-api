@@ -1,11 +1,12 @@
 package models.utility;
 
-public enum CharacterData {
+public enum CharacterDataType {
     ABILITYSCORE("/api/ability-scores/"),
-    ALIGNMENT("/api/alignments/");
+    ALIGNMENT("/api/alignments/"),
+    LANGUAGES("/api/languages/");
 
     private String endpoint;
-    CharacterData(String endpoint) {
+    CharacterDataType(String endpoint) {
         this.endpoint = endpoint;
     }
 

@@ -1,48 +1,26 @@
 package models.ability;
 
+import models.languages.Language;
 import models.skill.Skill;
 import models.utility.APIResource;
-import models.utility.CharacterData;
-import models.utility.NamedAPIResourceList;
+import models.utility.CharacterDataType;
 import models.utility.RequestAPI;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
-import static utils.APIProperties.getProp;
 import static utils.APIProperties.getServer;
 
 public class AbilityScore extends APIResource{
-    private String index;
-    private String name;
     private String full_name;
     private String[] desc;
     private ArrayList<Skill> skills;
 
     public AbilityScore() {
-    }
-
-    public String getIndex() {
-        return index;
-    }
-
-    public void setIndex(String index) {
-        this.index = index;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String[] getDesc() {
@@ -75,37 +53,17 @@ public class AbilityScore extends APIResource{
         return obj;
     }
 
-    public static AbilityScore getIndex(AbilityScoreIndex index) throws IOException {
-        String path = getServer() + CharacterData.ABILITYSCORE.getEndpoint() + index.getDescription();
+    public static AbilityScore getIndex(AbilityScoreType index) throws IOException {
+        String path = getServer() + CharacterDataType.ABILITYSCORE.getEndpoint() + index.getDescription();
         AbilityScore obj = (AbilityScore) RequestAPI.GET(path, AbilityScore.class);
 
         obj.setIsFetched(true);
         return obj;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        AbilityScore that = (AbilityScore) o;
-        return Objects.equals(index, that.index) && Objects.equals(name, that.name) && Objects.equals(full_name, that.full_name) && Arrays.equals(desc, that.desc) && Objects.equals(skills, that.skills);
+    public static List<Object> get() throws IOException {
+        String path = getServer() + CharacterDataType.ABILITYSCORE.getEndpoint();
+        return List.of(RequestAPI.GETs(path, AbilityScore[].class));
     }
 
-    @Override
-    public int hashCode() {
-        int result = Objects.hash(index, name, full_name, skills);
-        result = 31 * result + Arrays.hashCode(desc);
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "AbilityScore{" +
-                "index='" + index + '\'' +
-                ", name='" + name + '\'' +
-                ", full_name='" + full_name + '\'' +
-                ", desc=" + Arrays.toString(desc) +
-                ", skills=" + skills +
-                '}';
-    }
 }

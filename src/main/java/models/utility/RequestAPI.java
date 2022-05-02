@@ -2,6 +2,7 @@ package models.utility;
 
 
 import models.ability.AbilityScore;
+import models.languages.Language;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -19,6 +20,18 @@ public class RequestAPI extends Header{
         return new RestTemplate().exchange(
                 builder.build(true).toUri(), HttpMethod.GET, request,
                 object
+        ).getBody();
+    }
+
+    public static Object GETs(String url, Class<? extends Object[]> object){
+        HttpHeaders headers = DEFAULT_HEADER();
+
+        HttpEntity<Object> request = new HttpEntity<>(headers);
+        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url);
+
+        return new RestTemplate().exchange(
+                builder.build(true).toUri(), HttpMethod.GET, request,
+                object.getSuperclass()
         ).getBody();
     }
 }

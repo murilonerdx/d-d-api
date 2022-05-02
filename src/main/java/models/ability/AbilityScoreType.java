@@ -1,6 +1,6 @@
 package models.ability;
 
-public enum AbilityScoreIndex {
+public enum AbilityScoreType {
     charisma("cha"),
     constitution("con"),
     dexterity("dex"),
@@ -10,7 +10,7 @@ public enum AbilityScoreIndex {
 
     private String description;
 
-    AbilityScoreIndex(String description) {
+    AbilityScoreType(String description) {
         this.description = description;
     }
 

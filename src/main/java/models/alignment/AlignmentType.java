@@ -1,6 +1,6 @@
 package models.alignment;
 
-public enum AlignmentIndex {
+public enum AlignmentType {
     CN("chaotic-neutral"),
     CE("chaotic-evil"),
     CG("chaotic-good"),
@@ -13,7 +13,7 @@ public enum AlignmentIndex {
 
     private String description;
 
-    AlignmentIndex(String description) {
+    AlignmentType(String description) {
         this.description = description;
     }
 

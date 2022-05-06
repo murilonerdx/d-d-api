@@ -1,34 +1,47 @@
 package models.spell;
 
-import models.spellcasting.SpellCastingType;
-import models.subclasse.SubClass;
-import models.utility.DefaultDataAPI;
+import models.classe.ClasseType;
 import models.utility.RequestAPI;
 import models.utility.RequestDefaultResource;
 import models.utility.path.ClassDataType;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 import static utils.APIProperties.getServer;
 
+/**
+ * The type Spell.
+ */
 public class Spell extends RequestDefaultResource {
+    /**
+     * Get list.
+     *
+     * @return the list
+     * @throws IOException the io exception
+     */
     public static List<Spell> get() throws IOException {
-        List<Spell> spell_casting = new ArrayList<>();
-        SpellCastingType[] values = SpellCastingType.values();
+        List<Spell> spell_list = new ArrayList<>();
+        ClasseType[] values = ClasseType.values();
 
-        for(SpellCastingType type : values){
+        for (ClasseType type : values) {
             Spell index = getIndex(type);
-            spell_casting.add(index);
+            spell_list.add(index);
         }
 
-        return spell_casting;
+        return spell_list;
     }
-    public static Spell getIndex(SpellCastingType type) throws IOException {
+
+    /**
+     * Gets index.
+     *
+     * @param type the type
+     * @return the index
+     * @throws IOException the io exception
+     */
+    public static Spell getIndex(ClasseType type) throws IOException {
         String path = getServer() + ClassDataType.SPELL.endpointReplace(type.name());
         return (Spell) RequestAPI.GET(path, Spell.class);
     }
-
 }

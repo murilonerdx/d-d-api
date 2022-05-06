@@ -1,10 +1,13 @@
+import models.ability.AbilityScore;
 import models.ability.AbilityScoreType;
+import models.alignment.Alignment;
 import models.alignment.AlignmentType;
 import models.classe.Classe;
 import models.classe.ClasseType;
 import models.features.Feature;
 import models.languages.Language;
 import models.languages.LanguageType;
+import models.levels.Level;
 import models.proficiency.Proficiencies;
 import models.proficiency.Proficiency;
 import models.skill.Skill;
@@ -15,10 +18,9 @@ import models.spellcasting.SpellCastingType;
 import models.subclasse.SubClass;
 import models.utility.DefaultDataAPI;
 import models.utility.RequestDefaultResource;
-import models.ability.AbilityScore;
-import models.alignment.Alignment;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -34,6 +36,7 @@ public class App {
         List<Spell> requestDefaultResource9 = Spell.get();
         List<Feature> requestDefaultResource10 = Feature.get();
         List<Proficiencies> requestDefaultResource11 = Proficiencies.get();
+        List<Level> requestDefaultResource12 = Level.get();
 
         AbilityScore ability_score = AbilityScore.getIndex(AbilityScoreType.charisma);
         Alignment alignment = Alignment.getIndex(AlignmentType.CE);
@@ -42,46 +45,54 @@ public class App {
         Skill skill = Skill.getIndex(SkillType.history);
         Classe classe = Classe.getIndex(ClasseType.monk);
 
+        Level level = Level.getIndex(SpellCastingType.wizard, 5);
+        List<Level> level2 = Level.getSubclass(ClasseType.rogue, SpellCastingType.cleric);
+
         SpellCasting spell_casting = SpellCasting.getIndex(SpellCastingType.druid);
-        SubClass sub_class = SubClass.getIndex(SpellCastingType.druid);
-        Spell spell = Spell.getIndex(SpellCastingType.ranger);
+
+        SubClass sub_class = SubClass.getIndex(ClasseType.druid);
+        Spell spell = Spell.getIndex(ClasseType.ranger);
         Feature feature = Feature.getIndex(SpellCastingType.wizard);
         Proficiencies proficiencies = Proficiencies.getIndex(SpellCastingType.warlock);
 
         List<DefaultDataAPI> list_proficincy = Proficiency.searchProficiency("ate");
         List<Classe> list_classe = Classe.searchClasse(ClasseType.wizard);
 
-        System.out.println(requestDefaultResource1);
-        System.out.println(requestDefaultResource2);
-        System.out.println(requestDefaultResource3);
-        System.out.println(requestDefaultResource4);
-        System.out.println(requestDefaultResource5);
-        System.out.println(requestDefaultResource6);
-        System.out.println(requestDefaultResource7);
-        System.out.println(requestDefaultResource8);
-        System.out.println(requestDefaultResource9);
-        System.out.println(requestDefaultResource10);
-        System.out.println(requestDefaultResource11);
+        print().accept(requestDefaultResource1);
+        print().accept(requestDefaultResource2);
+        print().accept(requestDefaultResource3);
+        print().accept(requestDefaultResource4);
+        print().accept(requestDefaultResource5);
+        print().accept(requestDefaultResource6);
+        print().accept(requestDefaultResource7);
+        print().accept(requestDefaultResource8);
+        print().accept(requestDefaultResource9);
+        print().accept(requestDefaultResource10);
+        print().accept(requestDefaultResource11);
+        print().accept(requestDefaultResource12);
+
 
         System.out.println("\n\n#######");
-
-        System.out.println(ability_score);
-        System.out.println(alignment);
-        System.out.println(language);
-        System.out.println(proficiency);
-        System.out.println(skill);
-        System.out.println(classe);
-        System.out.println(spell_casting);
-        System.out.println(sub_class);
-        System.out.println(spell);
-        System.out.println(feature);
-        System.out.println(proficiencies);
+        print().accept(ability_score);
+        print().accept(alignment);
+        print().accept(language);
+        print().accept(proficiency);
+        print().accept(skill);
+        print().accept(classe);
+        print().accept(spell_casting);
+        print().accept(sub_class);
+        print().accept(spell);
+        print().accept(feature);
+        print().accept(proficiencies);
+        print().accept(level);
+        print().accept(level2);
 
         System.out.println("\n\n#######");
+        print().accept(list_proficincy);
+        print().accept(list_classe);
+    }
 
-        System.out.println(list_proficincy);
-        System.out.println(list_classe);
-
-
+    public static Consumer<Object> print() {
+        return System.out::println;
     }
 }

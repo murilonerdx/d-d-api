@@ -75,7 +75,9 @@ public enum SkillType {
     /**
      * Survival skill type.
      */
-    survival("survival");
+    survival("survival"),
+
+    empty("");
 
     private String description;
 

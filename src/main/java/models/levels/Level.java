@@ -1,5 +1,6 @@
 package models.levels;
 
+import models.utility.annotations.TypedForge;
 import models.classe.ClasseType;
 import models.spellcasting.SpellCasting;
 import models.spellcasting.SpellCastingType;
@@ -18,6 +19,7 @@ import static utils.APIProperties.getServer;
 /**
  * The type Level.
  */
+@TypedForge(name="level", forge= SpellCastingType.class)
 public class Level {
     private String level;
     private BigDecimal ability_score_bonuses;

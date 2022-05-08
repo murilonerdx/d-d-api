@@ -1,6 +1,7 @@
 package models.alignment;
 
 import com.google.gson.Gson;
+import models.utility.annotations.TypedForge;
 import models.utility.DefaultDataAPI;
 import models.utility.RequestAPI;
 import models.utility.RequestDefaultResource;
@@ -14,6 +15,7 @@ import static utils.APIProperties.getServer;
 /**
  * The type Alignment.
  */
+@TypedForge(name="alignment", forge= AlignmentType.class)
 public class Alignment extends DefaultDataAPI {
     private String abbreviation;
     private String desc;

@@ -1,6 +1,7 @@
 package models.skill;
 
 import com.google.gson.Gson;
+import models.utility.annotations.TypedForge;
 import models.utility.DefaultDataAPI;
 import models.utility.RequestAPI;
 import models.utility.RequestDefaultResource;
@@ -15,6 +16,7 @@ import static utils.APIProperties.getServer;
 /**
  * The type Skill.
  */
+@TypedForge(name="skill", forge= SkillType.class)
 public class Skill extends DefaultDataAPI {
     private String[] desc;
     private DefaultDataAPI ability_score;

@@ -27,7 +27,9 @@ public enum AbilityScoreType {
     /**
      * Wisdom ability score type.
      */
-    wisdom("wis");
+    wisdom("wis"),
+
+    empty("");
 
     private String description;
 

@@ -52,4 +52,5 @@ public enum ClasseType {
      * Wizard classe type.
      */
     wizard;
+
 }

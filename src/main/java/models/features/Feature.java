@@ -1,5 +1,6 @@
 package models.features;
 
+import models.utility.annotations.TypedForge;
 import models.spellcasting.SpellCastingType;
 import models.utility.RequestAPI;
 import models.utility.RequestDefaultResource;
@@ -14,6 +15,7 @@ import static utils.APIProperties.getServer;
 /**
  * The type Feature.
  */
+@TypedForge(name="feature", forge= SpellCastingType.class)
 public class Feature extends RequestDefaultResource {
     /**
      * Get list.

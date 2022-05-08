@@ -9,7 +9,8 @@ public enum AlignmentType {
     LG("lawful-good"),
     N("neutral"),
     NE("neutral-evil"),
-    NG("neutral-good");
+    NG("neutral-good"),
+    empty("");
 
     private String description;
 

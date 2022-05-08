@@ -1,6 +1,7 @@
 package models.spellcasting;
 
 
+import models.utility.annotations.TypedForge;
 import models.utility.DefaultDataAPI;
 import models.utility.RequestAPI;
 import models.utility.path.ClassDataType;
@@ -17,6 +18,7 @@ import static utils.APIProperties.getServer;
 /**
  * The type Spell casting.
  */
+@TypedForge(name="spell_casting", forge= SpellCastingType.class)
 public class SpellCasting {
     private BigDecimal level;
     private List<Info> info;

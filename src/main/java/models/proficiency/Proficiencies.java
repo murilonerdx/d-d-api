@@ -1,5 +1,6 @@
 package models.proficiency;
 
+import models.utility.annotations.TypedForge;
 import models.spellcasting.SpellCastingType;
 import models.utility.RequestAPI;
 import models.utility.RequestDefaultResource;
@@ -14,6 +15,7 @@ import static utils.APIProperties.getServer;
 /**
  * The type Proficiencies.
  */
+@TypedForge(name="proficiencies", forge= SpellCastingType.class)
 public class Proficiencies extends RequestDefaultResource {
     /**
      * Get list.

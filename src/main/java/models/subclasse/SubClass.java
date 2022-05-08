@@ -1,5 +1,7 @@
 package models.subclasse;
 
+import com.sun.jdi.ClassType;
+import models.utility.annotations.TypedForge;
 import models.classe.ClasseType;
 import models.utility.RequestAPI;
 import models.utility.RequestDefaultResource;
@@ -14,6 +16,7 @@ import static utils.APIProperties.getServer;
 /**
  * The type Sub class.
  */
+@TypedForge(name="sub_classe", forge= ClasseType.class)
 public class SubClass extends RequestDefaultResource {
     /**
      * Get list.

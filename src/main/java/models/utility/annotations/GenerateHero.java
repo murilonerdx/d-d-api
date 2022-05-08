@@ -1,4 +1,4 @@
-package models.annotations;
+package models.utility.annotations;
 
 
 import models.ability.AbilityScoreType;
@@ -22,14 +22,14 @@ public @interface GenerateHero {
      *
      * @return the string
      */
-    String value();
+    String name();
 
     /**
      * Level int.
      *
      * @return the int
      */
-    int _level() default 1;
+    int _level();
 
     /**
      * Classe classe type.
@@ -57,14 +57,14 @@ public @interface GenerateHero {
      *
      * @return the spell casting type
      */
-    SpellCastingType features();
+    SpellCastingType feature();
 
     /**
      * Levels spell casting type.
      *
      * @return the spell casting type
      */
-    SpellCastingType levels();
+    SpellCastingType level();
 
     /**
      * Proficiency string.
@@ -72,6 +72,9 @@ public @interface GenerateHero {
      * @return the string
      */
     String proficiency();
+
+
+    SpellCastingType proficiencies();
 
     /**
      * Skill skill type.
@@ -92,14 +95,14 @@ public @interface GenerateHero {
      *
      * @return the spell casting type
      */
-    SpellCastingType spellcasting();
+    SpellCastingType spell_casting();
 
     /**
      * Subclasse classe type.
      *
      * @return the classe type
      */
-    ClasseType subclasse();
+    ClasseType sub_classe();
 
-    LanguageType languages() default LanguageType.common;
+    LanguageType language();
 }

@@ -1,6 +1,7 @@
 package models.ability;
 
 import com.google.gson.Gson;
+import models.utility.annotations.TypedForge;
 import models.utility.DefaultDataAPI;
 import models.utility.RequestAPI;
 import models.utility.RequestDefaultResource;
@@ -16,6 +17,7 @@ import static utils.APIProperties.getServer;
 /**
  * The type Ability score.
  */
+@TypedForge(name="ability_score", forge=AbilityScoreType.class)
 public class AbilityScore extends DefaultDataAPI {
     private String full_name;
     private String[] desc;

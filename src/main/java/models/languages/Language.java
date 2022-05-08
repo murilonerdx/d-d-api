@@ -1,6 +1,7 @@
 package models.languages;
 
 import com.google.gson.Gson;
+import models.utility.annotations.TypedForge;
 import models.utility.DefaultDataAPI;
 import models.utility.RequestAPI;
 import models.utility.RequestDefaultResource;
@@ -15,6 +16,7 @@ import static utils.APIProperties.getServer;
 /**
  * The type Language.
  */
+@TypedForge(name="language", forge= LanguageType.class)
 public class Language extends DefaultDataAPI {
     private String desc;
     private String type;

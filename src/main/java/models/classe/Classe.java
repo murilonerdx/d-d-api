@@ -1,6 +1,7 @@
 package models.classe;
 
 import com.google.gson.Gson;
+import models.utility.annotations.TypedForge;
 import models.equipament.StartEquipment;
 import models.proficiency.ProficiencyChoices;
 import models.spellcasting.SpellCasting;
@@ -23,6 +24,7 @@ import static utils.APIProperties.getServer;
 /**
  * The type Classe.
  */
+@TypedForge(name="classe", forge= ClasseType.class)
 public class Classe extends DefaultDataAPI {
     private BigDecimal hit_die;
     private String class_levels;

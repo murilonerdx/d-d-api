@@ -1,6 +1,7 @@
 package models.proficiency;
 
 import com.google.gson.Gson;
+import models.utility.annotations.TypedForge;
 import models.utility.DefaultDataAPI;
 import models.utility.RequestAPI;
 import models.utility.RequestDefaultResource;
@@ -19,6 +20,7 @@ import static utils.APIProperties.getServer;
 /**
  * The type Proficiency.
  */
+@TypedForge(name="proficiency", forge= String.class)
 public class Proficiency extends DefaultDataAPI {
     private String type;
     private DefaultDataAPI[] races;

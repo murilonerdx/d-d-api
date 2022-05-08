@@ -8,6 +8,10 @@ import models.features.Feature;
 import models.languages.Language;
 import models.languages.LanguageType;
 import models.levels.Level;
+import models.mechanics.Condition;
+import models.mechanics.enums.ConditionType;
+import models.mechanics.Damage;
+import models.mechanics.enums.DamageType;
 import models.proficiency.Proficiencies;
 import models.proficiency.Proficiency;
 import models.skill.Skill;
@@ -37,6 +41,8 @@ public class App {
         List<Feature> requestDefaultResource10 = Feature.get();
         List<Proficiencies> requestDefaultResource11 = Proficiencies.get();
         List<Level> requestDefaultResource12 = Level.get();
+        List<Condition> requestDefaultResource13 = Condition.get();
+        List<Damage> requestDefaultResource14 = Damage.get();
 
         AbilityScore ability_score = AbilityScore.getIndex(AbilityScoreType.charisma);
         Alignment alignment = Alignment.getIndex(AlignmentType.CE);
@@ -44,6 +50,8 @@ public class App {
         Proficiency proficiency = Proficiency.getIndex("medium-armor");
         Skill skill = Skill.getIndex(SkillType.history);
         Classe classe = Classe.getIndex(ClasseType.monk);
+        Condition condition = Condition.getIndex(ConditionType.blinded);
+        Damage damage_types = Damage.getIndex(DamageType.cold);
 
         Level level = Level.getIndex(SpellCastingType.wizard, 5);
         List<Level> level2 = Level.getSubclass(ClasseType.rogue, SpellCastingType.cleric);
@@ -58,38 +66,47 @@ public class App {
         List<DefaultDataAPI> list_proficincy = Proficiency.searchProficiency("ate");
         List<Classe> list_classe = Classe.searchClasse(ClasseType.wizard);
 
-        print().accept(requestDefaultResource1);
-        print().accept(requestDefaultResource2);
-        print().accept(requestDefaultResource3);
-        print().accept(requestDefaultResource4);
-        print().accept(requestDefaultResource5);
-        print().accept(requestDefaultResource6);
-        print().accept(requestDefaultResource7);
-        print().accept(requestDefaultResource8);
-        print().accept(requestDefaultResource9);
-        print().accept(requestDefaultResource10);
-        print().accept(requestDefaultResource11);
-        print().accept(requestDefaultResource12);
+        print(requestDefaultResource1);
+        print(requestDefaultResource2);
+        print(requestDefaultResource3);
+        print(requestDefaultResource4);
+        print(requestDefaultResource5);
+        print(requestDefaultResource6);
+        print(requestDefaultResource7);
+        print(requestDefaultResource8);
+        print(requestDefaultResource9);
+        print(requestDefaultResource10);
+        print(requestDefaultResource11);
+        print(requestDefaultResource12);
+        print(requestDefaultResource13);
+        print(requestDefaultResource14);
 
 
         System.out.println("\n\n#######");
-        print().accept(ability_score);
-        print().accept(alignment);
-        print().accept(language);
-        print().accept(proficiency);
-        print().accept(skill);
-        print().accept(classe);
-        print().accept(spell_casting);
-        print().accept(sub_class);
-        print().accept(spell);
-        print().accept(feature);
-        print().accept(proficiencies);
-        print().accept(level);
-        print().accept(level2);
+        print(ability_score);
+        print(alignment);
+        print(language);
+        print(proficiency);
+        print(skill);
+        print(classe);
+        print(spell_casting);
+        print(sub_class);
+        print(spell);
+        print(feature);
+        print(proficiencies);
+        print(level);
+        print(level2);
+        print(condition);
+        print(damage_types);
+
 
         System.out.println("\n\n#######");
-        print().accept(list_proficincy);
-        print().accept(list_classe);
+        print(list_proficincy);
+        print(list_classe);
+    }
+
+    private static void print(Object r) {
+        print().accept(r);
     }
 
     public static Consumer<Object> print() {

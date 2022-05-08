@@ -1,4 +1,4 @@
-package models.annotations;
+package models.utility.annotations;
 
 import models.ability.AbilityScore;
 import models.alignment.Alignment;
@@ -140,9 +140,17 @@ public class Hero {
         this.sub_class = sub_class;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
-        return "IHero{" +
+        return name + "{" +
                 "abilityScore=" + abilityScore +
                 ", alignment=" + alignment +
                 ", classe=" + classe +

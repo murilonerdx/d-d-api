@@ -1,5 +1,6 @@
 package models.spell;
 
+import models.utility.annotations.TypedForge;
 import models.classe.ClasseType;
 import models.utility.RequestAPI;
 import models.utility.RequestDefaultResource;
@@ -14,6 +15,7 @@ import static utils.APIProperties.getServer;
 /**
  * The type Spell.
  */
+@TypedForge(name="spell", forge= ClasseType.class)
 public class Spell extends RequestDefaultResource {
     /**
      * Get list.

@@ -6,6 +6,12 @@ import models.alignment.Alignment;
 import models.alignment.AlignmentType;
 import models.classe.Classe;
 import models.classe.ClasseType;
+import models.equipament.EquipamentCategory;
+import models.equipament.Equipment;
+import models.equipament.MagicItem;
+import models.equipament.WeaponProperty;
+import models.equipament.enums.WeaponPropertyType;
+import models.feat.Feat;
 import models.features.Feature;
 import models.languages.Language;
 import models.languages.LanguageType;
@@ -29,7 +35,12 @@ public enum EPV {
     SKILL(Skill.class, SkillType.class),
     SPELL(Spell.class, ClasseType.class),
     SPELL_CASTING(SpellCasting.class, SpellCastingType.class),
-    SUB_CLASSE(SubClass.class, ClasseType.class);
+    SUB_CLASSE(SubClass.class, ClasseType.class),
+    FEAT(Feat.class, String.class),
+    DAMAGE(EquipamentCategory.class, String.class),
+    EQUIPMENT(Equipment.class, String.class),
+    MAGIC_ITEM(MagicItem.class, String.class),
+    WEAPON_PROPERTIERS(WeaponProperty.class, WeaponPropertyType.class);
 
     private Class<?> type;
     private Class<?> classType;

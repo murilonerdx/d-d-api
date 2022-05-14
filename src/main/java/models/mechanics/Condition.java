@@ -13,14 +13,29 @@ import java.util.List;
 
 import static utils.APIProperties.getServer;
 
+/**
+ * The type Condition.
+ * A condition alters a creature’s capabilities in a variety of ways and can arise as a result of a spell, a class feature, a monster’s attack, or other effect.
+ * Most conditions, such as blinded, are impairments, but a few, such as invisible, can be advantageous.
+ */
 @TypedForge(name="condition", forge= ConditionType.class)
 public class Condition extends DefaultDataAPI {
     private String[] desc;
 
+    /**
+     * Get desc string [ ].
+     *
+     * @return the string [ ]
+     */
     public String[] getDesc() {
         return desc;
     }
 
+    /**
+     * Sets desc.
+     *
+     * @param desc the desc
+     */
     public void setDesc(String[] desc) {
         this.desc = desc;
     }
@@ -29,7 +44,21 @@ public class Condition extends DefaultDataAPI {
      * Get list.
      *
      * @return the list
+     * @return {@link List}
      * @throws IOException the io exception
+     *                     <p>
+     *                     Get list.
+     * @throws IOException java.io. i o exception
+     * @see List
+     * @see Condition
+     */
+/**
+     *  Get list.
+     *
+     * @return {@link List}
+     * @see List
+     * @see Condition
+     * @throws IOException java.io. i o exception
      */
     public static List<Condition> get() throws IOException {
         List<Condition> condition_list = new ArrayList<>();

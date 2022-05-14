@@ -11,6 +11,7 @@ import models.spellcasting.SpellCastingType;
 import models.utility.DefaultDataAPI;
 import models.utility.RequestAPI;
 import models.utility.RequestDefaultResource;
+import models.utility.annotations.TypedForge;
 import models.utility.path.CharacterDataType;
 import models.utility.path.ClassDataType;
 import models.utility.path.ClassFeatType;
@@ -24,14 +25,29 @@ import java.util.List;
 
 import static utils.APIProperties.getServer;
 
+/**
+ * The type Feat.
+ * A feat is a boon a character can receive at level up instead of an ability score increase.
+ */
+@TypedForge(name="feat", forge= String.class)
 public class Feat extends DefaultDataAPI {
     private String[] desc;
     private Prerequisites[] prerequisites;
 
+    /**
+     * Get desc string [ ].
+     *
+     * @return the string [ ]
+     */
     public String[] getDesc() {
         return desc;
     }
 
+    /**
+     * Sets desc.
+     *
+     * @param desc the desc
+     */
     public void setDesc(String[] desc) {
         this.desc = desc;
     }
@@ -69,30 +85,63 @@ public class Feat extends DefaultDataAPI {
                 '}';
     }
 
+    /**
+     * Get prerequisites prerequisites [ ].
+     *
+     * @return the prerequisites [ ]
+     */
     public Prerequisites[] getPrerequisites() {
         return prerequisites;
     }
 
+    /**
+     * Sets prerequisites.
+     *
+     * @param prerequisites the prerequisites
+     */
     public void setPrerequisites(Prerequisites[] prerequisites) {
         this.prerequisites = prerequisites;
     }
 
+    /**
+     * The type Prerequisites.
+     */
     static class Prerequisites {
         private AbilityScore ability_score;
         private BigDecimal minimum_score;
 
+        /**
+         * Gets minimum score.
+         *
+         * @return the minimum score
+         */
         public BigDecimal getMinimum_score() {
             return minimum_score;
         }
 
+        /**
+         * Sets minimum score.
+         *
+         * @param minimum_score the minimum score
+         */
         public void setMinimum_score(BigDecimal minimum_score) {
             this.minimum_score = minimum_score;
         }
 
+        /**
+         * Gets ability score.
+         *
+         * @return the ability score
+         */
         public AbilityScore getAbility_score() {
             return ability_score;
         }
 
+        /**
+         * Sets ability score.
+         *
+         * @param ability_score the ability score
+         */
         public void setAbility_score(AbilityScore ability_score) {
             this.ability_score = ability_score;
         }

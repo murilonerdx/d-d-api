@@ -1,10 +1,8 @@
 package models.equipament;
 
-import models.proficiency.Proficiency;
 import models.utility.DefaultDataAPI;
 import models.utility.RequestAPI;
-import models.utility.RequestDefaultResource;
-import models.utility.path.CharacterDataType;
+import models.utility.annotations.TypedForge;
 import models.utility.path.ClassEquipamentType;
 
 import java.io.IOException;
@@ -12,13 +10,28 @@ import java.util.Arrays;
 
 import static utils.APIProperties.getServer;
 
-public class EquipamentCategory extends DefaultDataAPI{
+/**
+ * The type Equipament category.
+ * These are the categories that various equipment fall under.
+ */
+@TypedForge(name="equipment_category", forge= String.class)
+public class EquipmentCategory extends DefaultDataAPI{
     private DefaultDataAPI[] equipment;
 
+    /**
+     * Get equipment default data api [ ].
+     *
+     * @return the default data api [ ]
+     */
     public DefaultDataAPI[] getEquipment() {
         return equipment;
     }
 
+    /**
+     * Sets equipment.
+     *
+     * @param equipment the equipment
+     */
     public void setEquipment(DefaultDataAPI[] equipment) {
         this.equipment = equipment;
     }
@@ -30,9 +43,9 @@ public class EquipamentCategory extends DefaultDataAPI{
      * @return the index
      * @throws IOException the io exception
      */
-    public static EquipamentCategory getIndex(String name) throws IOException {
+    public static EquipmentCategory getIndex(String name) throws IOException {
         String path = getServer() + ClassEquipamentType.EQUIPAMENT_CATEGORIES.endpointReplace(name);
-        return (EquipamentCategory) RequestAPI.GET(path, EquipamentCategory.class);
+        return (EquipmentCategory) RequestAPI.GET(path, EquipmentCategory.class);
     }
 
     @Override

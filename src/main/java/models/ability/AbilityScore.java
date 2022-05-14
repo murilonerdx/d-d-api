@@ -11,11 +11,15 @@ import org.springframework.web.client.RestTemplate;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import static utils.APIProperties.getServer;
 
-/**
+
+/*
  * The type Ability score.
+ * Represents one of the six abilities that describes a creature's physical and mental characteristics.
+ * The three main rolls of the game
+ *  - the ability check, the saving throw, and the attack roll
+ *  - rely on the ability scores. [SRD p76]
  */
 @TypedForge(name="ability_score", forge=AbilityScoreType.class)
 public class AbilityScore extends DefaultDataAPI {

@@ -23,6 +23,9 @@ import static utils.APIProperties.getServer;
 
 /**
  * The type Classe.
+ * A character class is a fundamental part of the identity and nature of characters in the Dungeons & Dragons role-playing game.
+ * A character's capabilities, strengths, and weaknesses are largely defined by its class.
+ * A character's class affects a character's available skills and abilities. [SRD p8-55]
  */
 @TypedForge(name="classe", forge= ClasseType.class)
 public class Classe extends DefaultDataAPI {
@@ -270,6 +273,15 @@ public class Classe extends DefaultDataAPI {
      */
     public DefaultDataAPI[] getSubclasses() {
         return subclasses;
+    }
+
+    /**
+     * Sets multi classing.
+     *
+     * @param multi_classing the multi classing
+     */
+    public void setMulti_classing(MultiClasse multi_classing) {
+        this.multi_classing = multi_classing;
     }
 
     /**

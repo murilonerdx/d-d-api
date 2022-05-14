@@ -1,17 +1,12 @@
 package models.utility.path;
 
-
-public enum ClassFeatType {
-    FEATS("api/feats/{index}"),
-    MONSTER("api/monsters/{index}"),
-    RACES("api/races/{index}"),
-    RULES_SECTIONS("api/rule-sections/{index}"),
-    RULES("api/rules/{index}");
+public enum ClassEndpointType {
+    SPELL("api/spells");
 
 
     private String endpoint;
 
-    ClassFeatType(String endpoint) {
+    ClassEndpointType(String endpoint) {
         this.endpoint = endpoint;
     }
 
@@ -43,3 +38,4 @@ public enum ClassFeatType {
         return getEndpoint().replace("{index}", index);
     }
 }
+

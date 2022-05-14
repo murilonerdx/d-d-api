@@ -1,10 +1,11 @@
-package models.spell;
+package models.classe.spell;
 
 import models.utility.annotations.TypedForge;
 import models.classe.ClasseType;
 import models.utility.RequestAPI;
 import models.utility.RequestDefaultResource;
 import models.utility.path.ClassDataType;
+import models.utility.path.ClassEndpointType;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,5 +46,16 @@ public class Spell extends RequestDefaultResource {
     public static Spell getIndex(ClasseType type) throws IOException {
         String path = getServer() + ClassDataType.SPELL.endpointReplace(type.name());
         return (Spell) RequestAPI.GET(path, Spell.class);
+    }
+
+    /**
+     * Gets index.
+     *
+     * @return the index
+     * @throws IOException the io exception
+     */
+    public static RequestDefaultResource getAll() throws IOException {
+        String path = getServer() + ClassEndpointType.SPELL;
+        return (RequestDefaultResource) RequestAPI.GET(path, RequestDefaultResource.class);
     }
 }

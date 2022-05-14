@@ -4,14 +4,14 @@ import models.ability.AbilityScore;
 import models.alignment.Alignment;
 import models.classe.Classe;
 import models.equipament.StartEquipment;
-import models.features.Feature;
+import models.classe.features.Feature;
 import models.languages.Language;
 import models.levels.Level;
 import models.proficiency.Proficiency;
 import models.skill.Skill;
-import models.spell.Spell;
+import models.classe.spell.Spell;
 import models.spellcasting.SpellCasting;
-import models.subclasse.SubClass;
+import models.classe.subclasse.SubClass;
 
 public class Hero {
     private String name;

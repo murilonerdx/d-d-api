@@ -8,6 +8,7 @@ import models.utility.path.ClassGameMechanics;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static utils.APIProperties.getServer;
@@ -53,4 +54,16 @@ public class Condition extends DefaultDataAPI {
         String path = getServer() + ClassGameMechanics.CONDITIONS.endpointReplace(type.name());
         return (Condition) RequestAPI.GET(path, Condition.class);
     }
+
+    @Override
+    public String toString() {
+        return "Condition{" +
+                "index=" + getIndex() +
+                ", name=" + getName() +
+                ", url=" + getUrl() +
+                ", desc=" + Arrays.toString(desc) +
+                '}';
+    }
+
+
 }

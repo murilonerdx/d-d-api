@@ -8,6 +8,7 @@ import models.utility.path.ClassGameMechanics;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static utils.APIProperties.getServer;
@@ -53,5 +54,15 @@ public class Damage extends DefaultDataAPI {
     public static Damage getIndex(DamageType type) throws IOException {
         String path = getServer() + ClassGameMechanics.DAMAGE_TYPES.endpointReplace(type.name());
         return (Damage) RequestAPI.GET(path, Damage.class);
+    }
+
+    @Override
+    public String toString() {
+        return "Damage{" +
+                "index=" + getIndex() +
+                ", name=" + getName() +
+                ", url=" + getUrl() +
+                ", desc=" + Arrays.toString(desc) +
+                '}';
     }
 }

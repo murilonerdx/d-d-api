@@ -4,14 +4,22 @@ import models.alignment.Alignment;
 import models.alignment.AlignmentType;
 import models.classe.Classe;
 import models.classe.ClasseType;
+import models.equipament.EquipamentCategory;
+import models.equipament.Equipment;
+import models.equipament.MagicItem;
+import models.equipament.WeaponProperty;
+import models.equipament.enums.WeaponPropertyType;
+import models.feat.Feat;
 import models.features.Feature;
 import models.languages.Language;
 import models.languages.LanguageType;
 import models.levels.Level;
 import models.mechanics.Condition;
+import models.mechanics.MagicSchool;
 import models.mechanics.enums.ConditionType;
 import models.mechanics.Damage;
 import models.mechanics.enums.DamageType;
+import models.mechanics.enums.MagicSchoolType;
 import models.proficiency.Proficiencies;
 import models.proficiency.Proficiency;
 import models.skill.Skill;
@@ -34,6 +42,9 @@ public class App {
         RequestDefaultResource requestDefaultResource4 = Proficiency.get();
         RequestDefaultResource requestDefaultResource5 = Skill.get();
         RequestDefaultResource requestDefaultResource6 = Classe.get();
+        RequestDefaultResource requestDefaultResource16 = Equipment.get();
+        RequestDefaultResource requestDefaultResource17 = Feat.get();
+
 
         List<SpellCasting> requestDefaultResource7 = SpellCasting.get();
         List<SubClass> requestDefaultResource8 = SubClass.get();
@@ -43,6 +54,8 @@ public class App {
         List<Level> requestDefaultResource12 = Level.get();
         List<Condition> requestDefaultResource13 = Condition.get();
         List<Damage> requestDefaultResource14 = Damage.get();
+        List<MagicSchool> requestDefaultResource15 = MagicSchool.get();
+
 
         AbilityScore ability_score = AbilityScore.getIndex(AbilityScoreType.charisma);
         Alignment alignment = Alignment.getIndex(AlignmentType.CE);
@@ -62,6 +75,11 @@ public class App {
         Spell spell = Spell.getIndex(ClasseType.ranger);
         Feature feature = Feature.getIndex(SpellCastingType.wizard);
         Proficiencies proficiencies = Proficiencies.getIndex(SpellCastingType.warlock);
+        MagicSchool magic_schools = MagicSchool.getIndex(MagicSchoolType.abjuration);
+        EquipamentCategory equipment = EquipamentCategory.getIndex("ammunition");
+        MagicItem magic_item = MagicItem.getIndex("ammunition");
+        WeaponProperty weapon_property = WeaponProperty.getIndex(WeaponPropertyType.ammunition);
+        Feat feat = Feat.getIndex("grappler");
 
         List<DefaultDataAPI> list_proficincy = Proficiency.searchProficiency("ate");
         List<Classe> list_classe = Classe.searchClasse(ClasseType.wizard);
@@ -80,6 +98,9 @@ public class App {
         print(requestDefaultResource12);
         print(requestDefaultResource13);
         print(requestDefaultResource14);
+        print(requestDefaultResource15);
+        print(requestDefaultResource16);
+        print(requestDefaultResource17);
 
 
         System.out.println("\n\n#######");
@@ -98,7 +119,11 @@ public class App {
         print(level2);
         print(condition);
         print(damage_types);
-
+        print(magic_schools);
+        print(equipment);
+        print(magic_item);
+        print(weapon_property);
+        print(feat);
 
         System.out.println("\n\n#######");
         print(list_proficincy);

@@ -13,14 +13,29 @@ import java.util.List;
 
 import static utils.APIProperties.getServer;
 
+/**
+ * The type Damage.
+ * Different attacks, damaging spells, and other harmful effects deal different types of damage.
+ * Damage types have no rules of their own, but other rules, such as damage resistance, rely on the types.
+ */
 @TypedForge(name="damage_types", forge= DamageType.class)
 public class Damage extends DefaultDataAPI {
     private String[] desc;
 
+    /**
+     * Get desc string [ ].
+     *
+     * @return the string [ ]
+     */
     public String[] getDesc() {
         return desc;
     }
 
+    /**
+     * Sets desc.
+     *
+     * @param desc the desc
+     */
     public void setDesc(String[] desc) {
         this.desc = desc;
     }

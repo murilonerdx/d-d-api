@@ -14,6 +14,9 @@ import static utils.APIProperties.getServer;
 
 /**
  * The type Proficiencies.
+ * By virtue of race, class, and background a character is proficient at using certain skills, weapons, and equipment.
+ * Characters can also gain additional proficiencies at higher levels or by multiclassing.
+ * A characters starting proficiencies are determined during character creation.
  */
 @TypedForge(name="proficiencies", forge= SpellCastingType.class)
 public class Proficiencies extends RequestDefaultResource {

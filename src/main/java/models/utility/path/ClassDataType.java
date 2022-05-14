@@ -21,6 +21,9 @@ public enum ClassDataType {
      * Spell class data type.
      */
     SPELL("api/classes/{index}/spells"),
+
+    SPELLS("/api/spells/{index}"),
+
     /**
      * Features class data type.
      */
@@ -28,7 +31,13 @@ public enum ClassDataType {
     /**
      * Proficiencies class data type.
      */
-    PROFICIENCIES("api/classes/{index}/proficiencies");
+    PROFICIENCIES("api/classes/{index}/proficiencies"),
+
+
+    /**
+     * Feature class data type.
+     */
+    FEATURE("api/features/{index}");
 
     private String endpoint;
 

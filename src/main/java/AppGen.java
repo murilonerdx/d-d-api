@@ -1,22 +1,18 @@
 import models.ability.AbilityScore;
 import models.alignment.Alignment;
 import models.classe.Classe;
-import models.features.Feature;
+import models.classe.features.Feature;
 import models.languages.Language;
 import models.levels.Level;
 import models.proficiency.Proficiencies;
-import models.proficiency.Proficiency;
 import models.skill.Skill;
-import models.spell.Spell;
+import models.classe.spell.Spell;
 import models.spellcasting.SpellCasting;
-import models.subclasse.SubClass;
+import models.classe.subclasse.SubClass;
 import models.utility.EPV;
 import models.utility.annotations.Gen;
-import models.utility.annotations.Hero;
 import models.utility.annotations.Murilo;
 
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.util.function.Consumer;
 
 public class AppGen {

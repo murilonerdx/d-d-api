@@ -1,6 +1,5 @@
-package models.subclasse;
+package models.classe.subclasse;
 
-import com.sun.jdi.ClassType;
 import models.utility.annotations.TypedForge;
 import models.classe.ClasseType;
 import models.utility.RequestAPI;

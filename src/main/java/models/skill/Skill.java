@@ -15,6 +15,8 @@ import static utils.APIProperties.getServer;
 
 /**
  * The type Skill.
+ * Each ability covers a broad range of capabilities, including skills that a character or a monster can be proficient in.
+ * A skill represents a specific aspect of an ability score, and an individual's proficiency in a skill demonstrates a focus on that aspect. [SRD p77]
  */
 @TypedForge(name="skill", forge= SkillType.class)
 public class Skill extends DefaultDataAPI {

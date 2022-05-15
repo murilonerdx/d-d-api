@@ -24,6 +24,8 @@ public enum ClassDataType {
 
     SPELLS("/api/spells/{index}"),
 
+    TRAITS("api/traits/{index}"),
+
     /**
      * Features class data type.
      */

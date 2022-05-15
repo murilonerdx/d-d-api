@@ -10,6 +10,11 @@ Criei essa biblioteca simples com o proposito de consumir uma API do RPG de mesa
 </dependency>
 ```
 
+Não esqueça de configurar um arquivo chamado resources/dnd.properties com as configurações do site para fazer as requisições
+```maven
+dnd.api.server=https://www.dnd5eapi.co/
+```
+
 
 # Lista de informação referente a uma propriedade
 Existe alguns tipos de requisições no qual ele retorna uma lista de propriedades baseado no item escolhido, por exemplo **AbilityScore.get()** ele é responsavel de trazer uma requisição do tipo RequestDefaultResource que dentro dele é contido um contador da quantidade de items referente a AbilityScore e a lista de resultados que são os items. Alguns exemplos abaixo:

@@ -16,6 +16,7 @@ import models.classe.features.Feature;
 import models.languages.Language;
 import models.languages.LanguageType;
 import models.levels.Level;
+import models.proficiency.Proficiencies;
 import models.proficiency.Proficiency;
 import models.skill.Skill;
 import models.skill.SkillType;
@@ -28,10 +29,11 @@ public enum EPV {
     CLASSE(Classe.class, ClasseType.class),
     ABILITY(AbilityScore.class, AbilityScoreType.class),
     ALIGNMENT(Alignment.class, AlignmentType.class),
-    FEATURES(Feature.class, SpellCastingType.class),
-    LANGUAGES(Language.class, LanguageType.class),
-    LEVELS(Level.class, SpellCastingType.class),
+    FEATURE(Feature.class, SpellCastingType.class),
+    LANGUAGE(Language.class, LanguageType.class),
+    LEVEL(Level.class, SpellCastingType.class),
     PROFICIENCY(Proficiency.class, String.class),
+    PROFICIENCIES(Proficiencies.class, String.class),
     SKILL(Skill.class, SkillType.class),
     SPELL(Spell.class, ClasseType.class),
     SPELL_CASTING(SpellCasting.class, SpellCastingType.class),

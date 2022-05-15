@@ -15,6 +15,11 @@
 .classpath
 .project
 .settings/
+
+.classpath
+.project
+.settings/
+target/
  
 # Intellij
 .idea/
